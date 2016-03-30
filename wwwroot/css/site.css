@@ -24,3 +24,19 @@ textarea {
     background-color: #222;
     color: #eee;
 }
+
+.headshot {
+    max-width: 50px;
+}
+
+.menu {
+    font-size: 12px;
+}
+
+.menu li {
+    list-style-type:  none;
+}
+
+.menu li.active {
+    font-weight: bold;
+}
