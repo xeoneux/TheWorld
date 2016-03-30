@@ -1,14 +1,21 @@
 // site.js
 
 (function() {
-    var ele = document.getElementById("username");
-    ele.innerHTML = "Aayush Kapoor";
 
-    var main = document.getElementById("main");
-    main.onmouseenter = function() {
-        main.style["background-color"] = "#888";
-    };
-    main.onmouseleave = function() {
-        main.style["background-color"] = "";
-    };
+    var ele = $("#username");
+    ele.text("Aayush Kapoor");
+
+    var main = $("#main");
+    main.on("mouseenter", function() {
+        main.css("background-color", "#888");
+    });
+    main.on("mouseleave", function() {
+        main.css("background-color", "");
+    });
+
+    var menuItems = $("ul.menu li a");
+    menuItems.on("click", function() {
+        var me = $(this);
+        alert(me.text());
+    });
 })();
