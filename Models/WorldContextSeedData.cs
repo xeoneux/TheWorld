@@ -46,8 +46,8 @@ namespace TheWorld.Models
                     }
                 };
 
-                _context.Trips.Add(indiaTrip);
-                _context.Stops.AddRange(indiaTrip.Stops);
+                _context.Trips.Add(worldTrip);
+                _context.Stops.AddRange(worldTrip.Stops);
 
                 _context.SaveChanges();
             }
