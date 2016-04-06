@@ -39,6 +39,8 @@ namespace TheWorld
 
             services.AddTransient<WorldContextSeedData>();
 
+            services.AddScoped<IWorldRepository, WorldRepository>();
+
             services.AddScoped<IMailService, DebugMailService>();
         }
 
