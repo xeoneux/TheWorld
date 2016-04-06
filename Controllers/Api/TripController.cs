@@ -20,5 +20,11 @@ namespace TheWorld.Controllers.Api
 
             return Json(results);
         }
+
+        [HttpPost("api/trips")]
+        public JsonResult Post([FromBody]Trip newTrip)
+        {
+            return Json(true);
+        }
     }
 }
