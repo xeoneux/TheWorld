@@ -41,6 +41,8 @@ namespace TheWorld.Controllers.Api
                 {
                     var newTrip = Mapper.Map<Trip>(vm);
 
+                    newTrip.UserName = User.Identity.Name;
+
                     _logger.LogInformation("Attempting to save a new trip");
                     _repository.AddTrip(newTrip);
 
