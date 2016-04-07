@@ -8,6 +8,7 @@
   },
 
   "dependencies": {
+    "AutoMapper": "4.2.1",
     "Microsoft.Aspnet.Diagnostics": "1.0.0-rc1-final",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
     "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
