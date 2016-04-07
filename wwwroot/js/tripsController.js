@@ -7,5 +7,15 @@
 
     function tripsController() {
         var vm = this;
+        vm.trips = [
+            {
+                name: "India Trip",
+                created: new Date()
+            },
+            {
+                name: "World Trip",
+                created: new Date()
+            }
+        ];
     }
 })();
