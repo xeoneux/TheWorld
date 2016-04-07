@@ -7,6 +7,7 @@
 
     function tripsController() {
         var vm = this;
+
         vm.trips = [
             {
                 name: "India Trip",
@@ -17,5 +18,16 @@
                 created: new Date()
             }
         ];
+
+        vm.newTrip = {};
+
+        vm.AddTrip = function() {
+            vm.trips.push({
+                name: vm.newTrip.name,
+                created: new Date()
+            });
+
+            vm.newTrip = {};
+        };
     }
 })();
