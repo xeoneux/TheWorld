@@ -21,6 +21,7 @@ namespace TheWorld.Models
         {
             var theTrip = GetTripWithName(tripName);
             newStop.Order = theTrip.Stops.Max(s => s.Order) + 1;
+            theTrip.Stops.Add(newStop);
             _context.Add(newStop);
         }
 
