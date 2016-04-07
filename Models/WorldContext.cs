@@ -1,8 +1,9 @@
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
 
 namespace TheWorld.Models
 {
-    public class WorldContext : DbContext
+    public class WorldContext : IdentityDbContext<WorldUser>
     {
         public WorldContext()
         {
@@ -15,7 +16,7 @@ namespace TheWorld.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connString = Startup.Configuration["Data:WorldContextConnection"];
-            
+
             optionsBuilder.UseSqlServer(connString);
 
             base.OnConfiguring(optionsBuilder);
