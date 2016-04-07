@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.Logging;
 using TheWorld.Models;
+using TheWorld.Services;
 using TheWorld.ViewModels;
 
 namespace TheWorld.Controllers.Api
@@ -15,11 +16,13 @@ namespace TheWorld.Controllers.Api
     {
         private IWorldRepository _repository;
         private ILogger<TripController> _logger;
+        private CoordService _coordService;
 
-        public StopController(IWorldRepository repository, ILogger<TripController> logger)
+        public StopController(IWorldRepository repository, ILogger<TripController> logger, CoordService coordService)
         {
             _repository = repository;
             _logger = logger;
+            _coordService = coordService;
         }
 
         [HttpGet("")]
@@ -52,8 +55,18 @@ namespace TheWorld.Controllers.Api
                 if (ModelState.IsValid)
                 {
                     var newStop = Mapper.Map<Stop>(vm);
-
-                    _logger.LogInformation("Attempting to save a new trip");
+                    
+                    var coordResult = _coordService.Lookup(newStop.Name);
+                    
+                    if(coordResult.Success!=true){
+                        Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        Json(coordResult.Message);
+                    }
+                    
+                    newStop.Latitude = coordResult.Latitude;
+                    newStop.Longitude = coordResult.Longitude;
+                    
+                    _logger.LogInformation("Attempting to save a new stop");
                     _repository.AddStop(tripName, newStop);
 
                     if (_repository.SaveAll())

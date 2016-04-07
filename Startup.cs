@@ -41,6 +41,8 @@ namespace TheWorld
                 .AddSqlServer()
                 .AddDbContext<WorldContext>();
 
+            services.AddScoped<CoordService>();
+
             services.AddTransient<WorldContextSeedData>();
 
             services.AddScoped<IWorldRepository, WorldRepository>();
