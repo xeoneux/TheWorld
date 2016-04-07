@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
 
 namespace TheWorld.Services
 {
@@ -29,6 +30,30 @@ namespace TheWorld.Services
 
             var client = new HttpClient();
             var json = await client.GetStringAsync(url);
+
+            var results = JObject.Parse(json);
+            var resources = results["resourceSets"][0]["resources"];
+            if (!resources.HasValues)
+            {
+                result.Message = $"Could not find {Location} as a location";
+            }
+            else
+            {
+                var confidence = (string)resources[0]["confidence"];
+                if (confidence != "High")
+                {
+                    result.Message = $"Could not find a confident match for {Location} as a location";
+                }
+                else
+                {
+                    var coords = resources[0]["geocodePoints"][0]["coordinates"];
+                    result.Latitude = (double)coords[0];
+                    result.Longitude = (double)coords[1];
+                    result.Success = true;
+                    result.Message = "Success";
+                }
+            }
+
             return result;
         }
     }
