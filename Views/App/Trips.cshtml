@@ -11,6 +11,8 @@
     <div ng-controller="tripsController as vm" class="col-md-6 col-md-offset-3">
         <div class="text-danger" ng-show="vm.errorMessage">{{ vm.errorMessage }}</div>
         
+        <div class="text-center" ng-show="vm.isBusy"><i class="fa fa-spinner fa-spin"> Loading...</i></div>
+        
         <table class="table table-responsive table-striped">
             <tr ng-repeat="trip in vm.trips">
                 <td>{{ trip.name }}</td>
