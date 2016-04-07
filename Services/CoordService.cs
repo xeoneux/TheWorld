@@ -1,5 +1,7 @@
 using System;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 namespace TheWorld.Services
@@ -13,7 +15,7 @@ namespace TheWorld.Services
             _logger = logger;
         }
 
-        public CoordServiceResult Lookup(string Location)
+        public async Task<CoordServiceResult> Lookup(string Location)
         {
             var result = new CoordServiceResult()
             {
@@ -25,6 +27,8 @@ namespace TheWorld.Services
             var bingMapsKey = Startup.Configuration["AppSettings:BingMapsKey"];
             var url = $"http://dev.virtualearth.net/REST/v1/Locations?q={encodedName}&key={bingMapsKey}";
 
+            var client = new HttpClient();
+            var json = await client.GetStringAsync(url);
             return result;
         }
     }
