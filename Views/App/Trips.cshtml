@@ -1,42 +1,14 @@
-@model IEnumerable<TheWorld.Models.Trip>
 @{
     ViewBag.Title = "Home Page";
 }
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-route.min.js"></script>
+    <script src="~/js/simpleControls.js"></script>
     <script src="~/js/app-trips.js"></script>
     <script src="~/js/tripsController.js"></script>
-    <script src="~/js/simpleControls.js"></script>
+    <script src="~/js/tripEditorController.js"></script>
 }
 <div class="row" ng-app="app-trips">
     <div ng-view></div>
-    
-    <div class="col-md-6">
-        <h1>The World</h1>
-        <p>This will be a fun website soon!</p>
-        <form>
-            <div class="form-group">
-                <label>Date</label>
-                <input class="form-control">
-            </div>
-            <div class="form-group">
-                <label>Location</label>
-                <input class="form-control">
-            </div>
-            <div>
-                <input type="submit" value="Add" class="btn btn-success">
-            </div>
-        </form>
-    </div>
-    
-    <div class="col-md-6">
-        <h2>The Map</h2>
-        <ul>
-            @foreach (var trip in Model)
-            {
-                <li>@trip.Name (@trip.Created)</li>
-            }
-        </ul>
-    </div>
 </div>
