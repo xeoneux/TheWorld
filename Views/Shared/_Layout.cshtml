@@ -75,7 +75,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/js/site.js"></script>
+    <environment names="Development">
+        <script type="text/javascript" src="~/js/site.js"></script>
+    </environment>
+    <environment names="Production">
+        <script type="text/javascript" src="~/lib/site.js"></script>
+    </environment>
     
     @RenderSection("Scripts", false)
 </body>
