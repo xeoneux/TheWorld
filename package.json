@@ -1,0 +1,23 @@
+{
+  "name": "TheWorld",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeoneux/TheWorld.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xeoneux/TheWorld/issues"
+  },
+  "homepage": "https://github.com/xeoneux/TheWorld#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
