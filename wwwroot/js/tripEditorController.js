@@ -9,5 +9,8 @@
         var vm = this;
 
         vm.tripName = $routeParams.tripName;
+        vm.stops = [];
+        vm.isBusy = true;
+        vm.errorMessage = "";
     }
 })();
