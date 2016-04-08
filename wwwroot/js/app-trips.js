@@ -12,7 +12,7 @@
                 });
 
             $routeProvider
-                .when("/editor", {
+                .when("/editor/:tripName", {
                     controller: "tripEditorController",
                     controllerAs: "vm",
                     templateUrl: "/views/tripEditorView.html"

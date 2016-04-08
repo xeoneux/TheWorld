@@ -5,7 +5,9 @@
     angular.module("app-trips")
         .controller("tripEditorController", tripEditorController);
 
-    function tripEditorController($http) {
+    function tripEditorController($routeParams) {
+        var vm = this;
 
+        vm.tripName = $routeParams.tripName;
     }
 })();
