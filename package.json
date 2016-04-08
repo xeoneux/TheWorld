@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/xeoneux/TheWorld#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^1.5.3"
   }
 }
