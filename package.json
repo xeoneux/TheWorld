@@ -19,6 +19,7 @@
   "homepage": "https://github.com/xeoneux/TheWorld#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-ng-annotate": "^2.0.0",
     "gulp-uglify": "^1.5.3"
   }
 }
