@@ -4,6 +4,10 @@ Welcome to The World!
 
 This application allows you to plan for trips around the world.
 
+![Trips](/Screenshots/Trips.png?raw=true "Trips")
+
+![Stops](/Screenshots/Stops.png?raw=true "Stops")
+
 Feel free to clone this repository and modify it in any way you'd like.
 
 ### Tools/Frameworks
